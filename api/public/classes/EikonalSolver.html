@@ -41,32 +41,6 @@
 <em class="property">class </em><code class="sig-prename descclassname">pykonal.</code><code class="sig-name descname">EikonalSolver</code><a class="headerlink" href="#pykonal.EikonalSolver" title="Permalink to this definition">¶</a></dt>
 <dd><p>A class to solver the Eikonal equation in 3D Cartesian or
 spherical coordinates.</p>
-<dl class="attribute">
-<dt id="pykonal.EikonalSolver.close">
-<code class="sig-name descname">close</code><a class="headerlink" href="#pykonal.EikonalSolver.close" title="Permalink to this definition">¶</a></dt>
-<dd><p>A list of node indices in the <em>Trial</em> region.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pykonal.EikonalSolver.iax_null">
-<code class="sig-name descname">iax_null</code><a class="headerlink" href="#pykonal.EikonalSolver.iax_null" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="pykonal.EikonalSolver.is_alive">
-<code class="sig-name descname">is_alive</code><a class="headerlink" href="#pykonal.EikonalSolver.is_alive" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="pykonal.EikonalSolver.is_far">
-<code class="sig-name descname">is_far</code><a class="headerlink" href="#pykonal.EikonalSolver.is_far" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt>
-<code class="sig-name descname">.. automethod:: trace_ray(self, end, step_size=None)</code></dt>
-<dd></dd></dl>
-
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 21%" />
@@ -88,14 +62,14 @@ spherical coordinates.</p>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pykonal.EikonalSolver.norm" title="pykonal.EikonalSolver.norm"><code class="xref py py-attr docutils literal notranslate"><span class="pre">norm</span></code></a></p></td>
 <td><p><a class="reference internal" href="#pykonal.EikonalSolver.pgrid" title="pykonal.EikonalSolver.pgrid"><code class="xref py py-attr docutils literal notranslate"><span class="pre">pgrid</span></code></a></p></td>
-<td><p><a class="reference internal" href="#pykonal.EikonalSolver.src_loc" title="pykonal.EikonalSolver.src_loc"><code class="xref py py-attr docutils literal notranslate"><span class="pre">src_loc</span></code></a></p></td>
-<td><p><a class="reference internal" href="#pykonal.EikonalSolver.src_rtp" title="pykonal.EikonalSolver.src_rtp"><code class="xref py py-attr docutils literal notranslate"><span class="pre">src_rtp</span></code></a></p></td>
-<td><p><a class="reference internal" href="#pykonal.EikonalSolver.src_xyz" title="pykonal.EikonalSolver.src_xyz"><code class="xref py py-attr docutils literal notranslate"><span class="pre">src_xyz</span></code></a></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pykonal.EikonalSolver.uu" title="pykonal.EikonalSolver.uu"><code class="xref py py-attr docutils literal notranslate"><span class="pre">uu</span></code></a></p></td>
+<td><p><a class="reference internal" href="#pykonal.EikonalSolver.uu" title="pykonal.EikonalSolver.uu"><code class="xref py py-attr docutils literal notranslate"><span class="pre">uu</span></code></a></p></td>
 <td><p><a class="reference internal" href="#pykonal.EikonalSolver.vgrid" title="pykonal.EikonalSolver.vgrid"><code class="xref py py-attr docutils literal notranslate"><span class="pre">vgrid</span></code></a></p></td>
 <td><p><a class="reference internal" href="#pykonal.EikonalSolver.vv" title="pykonal.EikonalSolver.vv"><code class="xref py py-attr docutils literal notranslate"><span class="pre">vv</span></code></a></p></td>
-<td><p><a class="reference internal" href="#pykonal.EikonalSolver.vvp" title="pykonal.EikonalSolver.vvp"><code class="xref py py-attr docutils literal notranslate"><span class="pre">vvp</span></code></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pykonal.EikonalSolver.vvp" title="pykonal.EikonalSolver.vvp"><code class="xref py py-attr docutils literal notranslate"><span class="pre">vvp</span></code></a></p></td>
+<td></td>
+<td></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -120,80 +94,98 @@ spherical coordinates.</p>
 </tbody>
 </table>
 <dl class="attribute">
-<dt>
-<code class="sig-name descname">close</code></dt>
-<dd><p>A list of node indices in the <em>Trial</em> region.</p>
+<dt id="pykonal.EikonalSolver.close">
+<code class="sig-name descname">close</code><a class="headerlink" href="#pykonal.EikonalSolver.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>(Read/Write) A list of node indices in the <em>Trial</em> region.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="pykonal.EikonalSolver.coord_sys">
 <code class="sig-name descname">coord_sys</code><a class="headerlink" href="#pykonal.EikonalSolver.coord_sys" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>(Read-only) The coordinate system of the solver (‘<em>cartesian</em>’,
+or ‘<em>spherical</em>’).</p>
+</dd></dl>
 
 <dl class="attribute">
-<dt>
-<code class="sig-name descname">iax_null</code></dt>
-<dd></dd></dl>
+<dt id="pykonal.EikonalSolver.iax_null">
+<code class="sig-name descname">iax_null</code><a class="headerlink" href="#pykonal.EikonalSolver.iax_null" title="Permalink to this definition">¶</a></dt>
+<dd><p>(Read/Write) A list of axis indices specifying null dimensions.</p>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>This should be an integer not a list. There can be
+one null dimension at most.</p>
+</div>
+</dd></dl>
 
 <dl class="attribute">
-<dt>
-<code class="sig-name descname">is_alive</code></dt>
-<dd></dd></dl>
+<dt id="pykonal.EikonalSolver.is_alive">
+<code class="sig-name descname">is_alive</code><a class="headerlink" href="#pykonal.EikonalSolver.is_alive" title="Permalink to this definition">¶</a></dt>
+<dd><p>(Read/Write) An (Nx3) np.ndarray of flags specifying which nodes
+are <em>Known</em>.</p>
+</dd></dl>
 
 <dl class="attribute">
-<dt>
-<code class="sig-name descname">is_far</code></dt>
-<dd></dd></dl>
+<dt id="pykonal.EikonalSolver.is_far">
+<code class="sig-name descname">is_far</code><a class="headerlink" href="#pykonal.EikonalSolver.is_far" title="Permalink to this definition">¶</a></dt>
+<dd><p>(Read/Write) An (Nx3) np.ndarray of flags specifying which nodes
+are <em>Unknown</em>.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="pykonal.EikonalSolver.norm">
 <code class="sig-name descname">norm</code><a class="headerlink" href="#pykonal.EikonalSolver.norm" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>(Read-only) (MxNxP) np.ndarray with appropriate scaling factors
+for the coordinate system at each node of the propagation grid</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="pykonal.EikonalSolver.pgrid">
 <code class="sig-name descname">pgrid</code><a class="headerlink" href="#pykonal.EikonalSolver.pgrid" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="pykonal.EikonalSolver.src_loc">
-<code class="sig-name descname">src_loc</code><a class="headerlink" href="#pykonal.EikonalSolver.src_loc" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="pykonal.EikonalSolver.src_rtp">
-<code class="sig-name descname">src_rtp</code><a class="headerlink" href="#pykonal.EikonalSolver.src_rtp" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="pykonal.EikonalSolver.src_xyz">
-<code class="sig-name descname">src_xyz</code><a class="headerlink" href="#pykonal.EikonalSolver.src_xyz" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>(Read-only) (MxNxPx3) np.ndarray with grid-node coordinates for
+the propagation grid.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="pykonal.EikonalSolver.uu">
 <code class="sig-name descname">uu</code><a class="headerlink" href="#pykonal.EikonalSolver.uu" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>(Read/Write) (MxNxP) np.ndarray with travel time values at each
+node of the propagation grid.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="pykonal.EikonalSolver.vgrid">
 <code class="sig-name descname">vgrid</code><a class="headerlink" href="#pykonal.EikonalSolver.vgrid" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>(Read-only) (MxNxPx3) np.ndarray with grid-node coordinates for
+the velocity grid.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="pykonal.EikonalSolver.vv">
 <code class="sig-name descname">vv</code><a class="headerlink" href="#pykonal.EikonalSolver.vv" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>(Read/Write) (MxNxP) np.ndarray with velocity values at each
+node of the velocity grid.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="pykonal.EikonalSolver.vvp">
 <code class="sig-name descname">vvp</code><a class="headerlink" href="#pykonal.EikonalSolver.vvp" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>(Read/Write) (MxNxP) np.ndarray with velocity values at each
+node of the propagation grid.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pykonal.EikonalSolver.solve">
 <code class="sig-name descname">solve</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#pykonal.EikonalSolver.solve" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Run the update scheme to solve the Eikonal equation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>NoneType</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="method">
 <dt id="pykonal.EikonalSolver.trace_ray">
