@@ -13,9 +13,9 @@ pykonal.EikonalSolver
     +====================+==================+===================+===================+==================+
     |:attr:`close`       |:attr:`coord_sys` |:attr:`iax_null`   |:attr:`is_alive`   |:attr:`is_far`    |
     +--------------------+------------------+-------------------+-------------------+------------------+
-    |:attr:`norm`        |:attr:`pgrid`     |:attr:`src_loc`    |:attr:`src_rtp`    |:attr:`src_xyz`   |
+    |:attr:`norm`        |:attr:`pgrid`     |:attr:`uu`         |:attr:`vgrid`      |:attr:`vv`        |
     +--------------------+------------------+-------------------+-------------------+------------------+
-    |:attr:`uu`          |:attr:`vgrid`     |:attr:`vv`         |:attr:`vvp`        |                  |
+    |:attr:`vvp`         |                  |                   |                   |                  |
     +--------------------+------------------+-------------------+-------------------+------------------+
 
     +----------------------------------+
@@ -37,9 +37,6 @@ pykonal.EikonalSolver
     .. autoattribute:: is_far
     .. autoattribute:: norm
     .. autoattribute:: pgrid
-    .. autoattribute:: src_loc
-    .. autoattribute:: src_rtp
-    .. autoattribute:: src_xyz
     .. autoattribute:: uu
     .. autoattribute:: vgrid
     .. autoattribute:: vv
