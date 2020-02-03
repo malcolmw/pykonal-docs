@@ -5,4 +5,3 @@ Public Classes
    :maxdepth: 2
    :caption: Contents:
 
-   classes/EikonalSolver

@@ -12,6 +12,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Gallery" href="gallery.html" />
@@ -34,6 +35,86 @@
             
   <div class="section" id="examples">
 <h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="cartesian-2d">
+<h2>Cartesian 2D<a class="headerlink" href="#cartesian-2d" title="Permalink to this headline">¶</a></h2>
+<p>This example demonstrates the trivial case of a point source at
+<span class="math notranslate nohighlight">\((x, y) = (0, 0)\)</span> in a homogeneous velocity model where
+<span class="math notranslate nohighlight">\(v(x, y) = 1\)</span> [km/s] using a 8 x 8 Cartesian computational grid. Note
+that this is really a 3D problem with only a single layer of nodes in the z
+direction.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import modules.</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pykonal</span>
+
+<span class="c1"># Instantiate EikonalSolver object using Cartesian coordinates.</span>
+<span class="n">solver</span> <span class="o">=</span> <span class="n">pykonal</span><span class="o">.</span><span class="n">EikonalSolver</span><span class="p">(</span><span class="n">coord_sys</span><span class="o">=</span><span class="s2">&quot;cartesian&quot;</span><span class="p">)</span>
+<span class="c1"># Set the coordinates of the lower bounds of the computational grid.</span>
+<span class="c1"># For Cartesian coordinates this is x_min, y_min, z_min.</span>
+<span class="c1"># In this example, the origin is the lower bound of the computation grid.</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">velocity</span><span class="o">.</span><span class="n">min_coords</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+<span class="c1"># Set the interval between nodes of the computational grid.</span>
+<span class="c1"># For Cartesian coordinates this is dx, dy, dz.</span>
+<span class="c1"># In this example the nodes are separated by 1 km in in each direction.</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">velocity</span><span class="o">.</span><span class="n">node_intervals</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>
+<span class="c1"># Set the number of nodes in the computational grid.</span>
+<span class="c1"># For Cartesian coordinates this is nx, ny, nz.</span>
+<span class="c1"># This is a 2D example, so we only want one node in the z direction.</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">velocity</span><span class="o">.</span><span class="n">npts</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span>
+<span class="c1"># Set the velocity model.</span>
+<span class="c1"># In this case the velocity is equale to 1 km/s everywhere.</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">velocity</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">solver</span><span class="o">.</span><span class="n">velocity</span><span class="o">.</span><span class="n">npts</span><span class="p">)</span>
+
+<span class="c1"># Initialize the source. This is the trickiest part of the example.</span>
+<span class="c1"># The source coincides with the node at index (0, 0, 0)</span>
+<span class="n">src_idx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+<span class="c1"># Set the traveltime at the source node to 0.</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">traveltime</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">src_idx</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="c1"># Set the is_far flag for the source node to False.</span>
+<span class="c1"># This is an FMM state variable indicating which values are completely</span>
+<span class="c1"># unknown. Setting it to False indicates that the node has a tentative value</span>
+<span class="c1"># assigned to it. In this case, the tentative value happens to be the true,</span>
+<span class="c1"># final value.</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">is_far</span><span class="p">[</span><span class="n">src_idx</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="c1"># Push the index of the source node onto the narrow-band heap.</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">close</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="o">*</span><span class="n">src_idx</span><span class="p">)</span>
+
+<span class="c1"># Solve the system.</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
+
+<span class="c1"># And finally, get the traveltime values.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">solver</span><span class="o">.</span><span class="n">traveltime</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="_images/cartesian_2d.png" src="_images/cartesian_2d.png" />
+</div>
+<div class="section" id="cartesian-3d">
+<h2>Cartesian 3D<a class="headerlink" href="#cartesian-3d" title="Permalink to this headline">¶</a></h2>
+<p>Identical to the Cartesian 2D example except this time extend the computational
+grid by 8 nodes in the z direction.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pykonal</span>
+
+<span class="c1"># Initialize the solver.</span>
+<span class="n">solver</span> <span class="o">=</span> <span class="n">pykonal</span><span class="o">.</span><span class="n">EikonalSolver</span><span class="p">(</span><span class="n">coord_sys</span><span class="o">=</span><span class="s2">&quot;cartesian&quot;</span><span class="p">)</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">velocity</span><span class="o">.</span><span class="n">min_coords</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">velocity</span><span class="o">.</span><span class="n">node_intervals</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>
+<span class="c1"># This time we want a 3D computational grid, so set the number of grid nodes</span>
+<span class="c1"># in the z direction to 8 as well.</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">velocity</span><span class="o">.</span><span class="n">npts</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">velocity</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">solver</span><span class="o">.</span><span class="n">velocity</span><span class="o">.</span><span class="n">npts</span><span class="p">)</span>
+
+<span class="c1"># Initialize the source.</span>
+<span class="n">src_idx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">traveltime</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">src_idx</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">is_far</span><span class="p">[</span><span class="n">src_idx</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">close</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="o">*</span><span class="n">src_idx</span><span class="p">)</span>
+
+<span class="c1"># Solve the system.</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="_images/cartesian_3d.png" src="_images/cartesian_3d.png" />
+</div>
 </div>
 
 
@@ -58,7 +139,6 @@
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gallery.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
 </ul>
 
 <div class="relations">
@@ -96,7 +176,7 @@
       &copy;2019, Malcolm C. A. White.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.3.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

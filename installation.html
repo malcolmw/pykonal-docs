@@ -34,6 +34,30 @@
             
   <div class="section" id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>PyKonal has been tested with Python 3.7 on Linux (Ubuntu 19.10, 18.04LTS) and Mac OS X (10.13) operating systems. It is not guaranteed to run on Windows.</p>
+<p>Installation is via a setup.py file and requires both dependencies (numpy and Cython) to be installed prior to building.</p>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>numpy</p></li>
+<li><p>cython [&gt;=0.29.14]</p></li>
+</ul>
+</div>
+<div class="section" id="conda-recommended">
+<h2>Conda (Recommended)<a class="headerlink" href="#conda-recommended" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">pykonal</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.7</span><span class="p">,</span> <span class="n">numpy</span><span class="p">,</span> <span class="n">cython</span><span class="o">&gt;=</span><span class="mf">0.29</span><span class="o">.</span><span class="mi">14</span>
+<span class="n">conda</span> <span class="n">activate</span> <span class="n">py37</span>
+<span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pip">
+<h2>pip<a class="headerlink" href="#pip" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">numpy</span> <span class="n">cython</span><span class="o">&gt;=</span><span class="mf">0.29</span><span class="o">.</span><span class="mi">14</span>
+<span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -55,10 +79,14 @@
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conda-recommended">Conda (Recommended)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pip">pip</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gallery.html">Gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
 </ul>
 
 <div class="relations">
@@ -96,7 +124,7 @@
       &copy;2019, Malcolm C. A. White.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.3.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
