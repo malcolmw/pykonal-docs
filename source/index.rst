@@ -6,17 +6,16 @@
 Welcome to PyKonal's documentation!
 ===================================
 
-.. warning:: Documentation is under construction and largely incomplete!
-    Exercise extreme caution :)
+.. warning:: Documentation is currently under construction and some pages may be incomplete.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
 
    installation
    examples
+   jupyter
    gallery
-   api
 
 Indices and tables
 ==================
