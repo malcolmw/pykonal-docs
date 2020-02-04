@@ -1,19 +1,40 @@
 Jupyter Notebooks
 =================
 
-After installing PyKonal, the Jupyter Notebooks here can be used to reproduce
-the figures from White et al. (2020).
+The Jupyter Notebooks here can be used to reproduce the figures from White et
+al. (2020). These notebooks are guaranteed to work with PyKonal version 0.2a0.
 
-.. :download:`Figure 3 <jupyter/figure_3.ipynb>`
+Dependencies
+------------
+These notebooks have additional dependencies:
+
+* jupyter/jupyterlab
+* scipy
+* matplotlib
+* ipympl
+
+The ipympl dependency can easily by alleviated by replacing the first line in
+each notebook with a call to your matplotlib backend of choice.
+
+The easiest way to build a working environment is via `Conda <https://www.anaconda.com>`_:
+
+.. code-block::
+
+   conda create --name pykonal -c conda-forge python=3.7 numpy scipy 'cython>=0.29.14' matplotlib ipympl nodejs jupyterlab
+   conda activate pykonal
+   jupyter labextension install @jupyter-widgets/jupyterlab-manager
+   jupyter labextension install jupyter-matplotlib
+   cd path/to/pykonal
+   python setup.py install
 
 Download
 --------
-* figure_3.ipynb
-* figure_4.ipynb
-* figure_5.ipynb
-* figure_6.ipynb
-* figure_7.ipynb
-* figure_8.ipynb
+* :download:`figure_3.ipynb <jupyter/figure_3.ipynb>`
+* :download:`figure_4.ipynb <jupyter/figure_4.ipynb>`
+* :download:`figure_5.ipynb <jupyter/figure_5.ipynb>`
+* :download:`figure_6.ipynb <jupyter/figure_6.ipynb>`
+* :download:`figure_7.ipynb <jupyter/figure_7.ipynb>`
+* :download:`figure_8.ipynb <jupyter/figure_8.ipynb>`
 
 Figure 3
 --------
