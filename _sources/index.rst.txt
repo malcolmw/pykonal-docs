@@ -16,6 +16,7 @@ Welcome to PyKonal's documentation!
    examples
    jupyter
    gallery
+   api
 
 Indices and tables
 ==================
