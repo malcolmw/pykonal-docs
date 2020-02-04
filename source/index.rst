@@ -6,7 +6,7 @@
 Welcome to PyKonal's documentation!
 ===================================
 
-.. warning:: Documentation is currently under construction and some pages may be incomplete.
+.. note:: Documentation is currently under construction and some pages may be incomplete.
 
 .. toctree::
    :maxdepth: 1

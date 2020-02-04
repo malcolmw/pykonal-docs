@@ -1,8 +1,9 @@
-Public Classes
+pykonal.fields
 ==============
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-   classes/EikonalSolver
+
+.. automodule:: pykonal.fields

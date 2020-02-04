@@ -5,5 +5,5 @@ API
    :maxdepth: 2
    :caption: Contents:
 
-   api/public
-   api/private
+   api/modules
+   api/classes
