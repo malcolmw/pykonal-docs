@@ -54,9 +54,9 @@
 <span class="c1"># index (0, 0, 0).</span>
 <span class="n">src_idx</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="c1"># Remove source node from *Unknown*</span>
-<span class="n">solver</span><span class="o">.</span><span class="n">is_far</span><span class="p">[</span><span class="n">src_idx</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">unknown</span><span class="p">[</span><span class="n">src_idx</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="c1"># Add source node to *Trial*.</span>
-<span class="n">solver</span><span class="o">.</span><span class="n">close</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="o">*</span><span class="n">src_idx</span><span class="p">)</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">trial</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="o">*</span><span class="n">src_idx</span><span class="p">)</span>
 <span class="c1"># Solve the system.</span>
 <span class="n">solver</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
 <span class="c1"># Extract the traveltime values.</span>
@@ -99,13 +99,6 @@ returned, so it is in the normal forward-time orientation.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="pykonal.solver.EikonalSolver.close">
-<code class="sig-name descname">close</code><a class="headerlink" href="#pykonal.solver.EikonalSolver.close" title="Permalink to this definition">¶</a></dt>
-<dd><p>[<em>Read/Write</em>, <a class="reference internal" href="../heapq/Heap.html#pykonal.heapq.Heap" title="pykonal.heapq.Heap"><code class="xref py py-class docutils literal notranslate"><span class="pre">pykonal.heapq.Heap</span></code></a>] Heap of node
-indices in <em>Trial</em>.</p>
-</dd></dl>
-
-<dl class="attribute">
 <dt id="pykonal.solver.EikonalSolver.coord_sys">
 <code class="sig-name descname">coord_sys</code><a class="headerlink" href="#pykonal.solver.EikonalSolver.coord_sys" title="Permalink to this definition">¶</a></dt>
 <dd><p>[<em>Read only</em>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>] Coordinate system of solver
@@ -113,17 +106,10 @@ indices in <em>Trial</em>.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="pykonal.solver.EikonalSolver.is_alive">
-<code class="sig-name descname">is_alive</code><a class="headerlink" href="#pykonal.solver.EikonalSolver.is_alive" title="Permalink to this definition">¶</a></dt>
+<dt id="pykonal.solver.EikonalSolver.known">
+<code class="sig-name descname">known</code><a class="headerlink" href="#pykonal.solver.EikonalSolver.known" title="Permalink to this definition">¶</a></dt>
 <dd><p>[<em>Read/Write</em>, <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>(shape=(N0,N1,N2), dtype=numpy.bool)] 3D array of booleans
 indicating whether nodes are in <em>Known</em>.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pykonal.solver.EikonalSolver.is_far">
-<code class="sig-name descname">is_far</code><a class="headerlink" href="#pykonal.solver.EikonalSolver.is_far" title="Permalink to this definition">¶</a></dt>
-<dd><p>[<em>Read/Write</em>, <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>(shape=(N0,N1,N2), dtype=numpy.bool)] 3D array of booleans
-indicating whether nodes are in <em>Unknown</em>.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -147,10 +133,24 @@ of traveltime values.</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="pykonal.solver.EikonalSolver.trial">
+<code class="sig-name descname">trial</code><a class="headerlink" href="#pykonal.solver.EikonalSolver.trial" title="Permalink to this definition">¶</a></dt>
+<dd><p>[<em>Read/Write</em>, <a class="reference internal" href="../heapq/Heap.html#pykonal.heapq.Heap" title="pykonal.heapq.Heap"><code class="xref py py-class docutils literal notranslate"><span class="pre">pykonal.heapq.Heap</span></code></a>] Heap of node
+indices in <em>Trial</em>.</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="pykonal.solver.EikonalSolver.tt">
 <code class="sig-name descname">tt</code><a class="headerlink" href="#pykonal.solver.EikonalSolver.tt" title="Permalink to this definition">¶</a></dt>
 <dd><p>[<em>Read/Write</em>, <a class="reference internal" href="../fields/ScalarField3D.html#pykonal.fields.ScalarField3D" title="pykonal.fields.ScalarField3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">pykonal.fields.ScalarField3D</span></code></a>] Alias for
 self.traveltime.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pykonal.solver.EikonalSolver.unknown">
+<code class="sig-name descname">unknown</code><a class="headerlink" href="#pykonal.solver.EikonalSolver.unknown" title="Permalink to this definition">¶</a></dt>
+<dd><p>[<em>Read/Write</em>, <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>(shape=(N0,N1,N2), dtype=numpy.bool)] 3D array of booleans
+indicating whether nodes are in <em>Unknown</em>.</p>
 </dd></dl>
 
 <dl class="attribute">

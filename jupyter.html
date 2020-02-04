@@ -35,16 +35,38 @@
             
   <div class="section" id="jupyter-notebooks">
 <h1>Jupyter Notebooks<a class="headerlink" href="#jupyter-notebooks" title="Permalink to this headline">¶</a></h1>
-<p>The Jupyter Notebooks here can be used to reproduce the figures from White et al. (2020).</p>
+<p>The Jupyter Notebooks here can be used to reproduce the figures from White et
+al. (2020). These notebooks are guaranteed to work with PyKonal version 0.2a0.</p>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<p>These notebooks have additional dependencies:</p>
+<ul class="simple">
+<li><p>jupyter/jupyterlab</p></li>
+<li><p>scipy</p></li>
+<li><p>matplotlib</p></li>
+<li><p>ipympl</p></li>
+</ul>
+<p>The ipympl dependency can easily by alleviated by replacing the first line in
+each notebook with a call to your matplotlib backend of choice.</p>
+<p>The easiest way to build a working environment is via <a class="reference external" href="https://www.anaconda.com">Conda</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">name</span> <span class="n">pykonal</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.7</span> <span class="n">numpy</span> <span class="n">scipy</span> <span class="s1">&#39;cython&gt;=0.29.14&#39;</span> <span class="n">matplotlib</span> <span class="n">ipympl</span> <span class="n">nodejs</span> <span class="n">jupyterlab</span>
+<span class="n">conda</span> <span class="n">activate</span> <span class="n">pykonal</span>
+<span class="n">jupyter</span> <span class="n">labextension</span> <span class="n">install</span> <span class="nd">@jupyter</span><span class="o">-</span><span class="n">widgets</span><span class="o">/</span><span class="n">jupyterlab</span><span class="o">-</span><span class="n">manager</span>
+<span class="n">jupyter</span> <span class="n">labextension</span> <span class="n">install</span> <span class="n">jupyter</span><span class="o">-</span><span class="n">matplotlib</span>
+<span class="n">cd</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">pykonal</span>
+<span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="download">
 <h2>Download<a class="headerlink" href="#download" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>figure_3.ipynb</p></li>
-<li><p>figure_4.ipynb</p></li>
-<li><p>figure_5.ipynb</p></li>
-<li><p>figure_6.ipynb</p></li>
-<li><p>figure_7.ipynb</p></li>
-<li><p>figure_8.ipynb</p></li>
+<li><p><a class="reference download internal" download="" href="_downloads/dd3aee0b6fa568f6f8a56da388ed0039/figure_3.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">figure_3.ipynb</span></code></a></p></li>
+<li><p><a class="reference download internal" download="" href="_downloads/aa2cf276763f4e0b3fb53a959f795712/figure_4.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">figure_4.ipynb</span></code></a></p></li>
+<li><p><a class="reference download internal" download="" href="_downloads/deeaf86e12cefea0359c64afdebca514/figure_5.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">figure_5.ipynb</span></code></a></p></li>
+<li><p><a class="reference download internal" download="" href="_downloads/d82d9102363e961a1593896b331c6cc1/figure_6.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">figure_6.ipynb</span></code></a></p></li>
+<li><p><a class="reference download internal" download="" href="_downloads/e8986519f6bdc1d7abd598f6f8d7617a/figure_7.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">figure_7.ipynb</span></code></a></p></li>
+<li><p><a class="reference download internal" download="" href="_downloads/6b96094212a0bb95c0ccb9ec6e41763c/figure_8.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">figure_8.ipynb</span></code></a></p></li>
 </ul>
 </div>
 <div class="section" id="figure-3">
