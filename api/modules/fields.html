@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>pykonal.fields &#8212; PyKonal 0.1a4 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="pykonal.heapq" href="heapq.html" />
+    <link rel="prev" title="pykonal.constants" href="constants.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="pykonal-fields">
+<h1>pykonal.fields<a class="headerlink" href="#pykonal-fields" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<span class="target" id="module-pykonal.fields"></span><p>This module provides three classes (<a class="reference internal" href="../classes/fields/Field3D.html#pykonal.fields.Field3D" title="pykonal.fields.Field3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">Field3D</span></code></a>,
+<a class="reference internal" href="../classes/fields/ScalarField3D.html#pykonal.fields.ScalarField3D" title="pykonal.fields.ScalarField3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">ScalarField3D</span></code></a>, and
+<a class="reference internal" href="../classes/fields/VectorField3D.html#pykonal.fields.VectorField3D" title="pykonal.fields.VectorField3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">VectorField3D</span></code></a>).
+<a class="reference internal" href="../classes/fields/Field3D.html#pykonal.fields.Field3D" title="pykonal.fields.Field3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">Field3D</span></code></a> is a base class intended to
+be used only as an abstraction. <a class="reference internal" href="../classes/fields/ScalarField3D.html#pykonal.fields.ScalarField3D" title="pykonal.fields.ScalarField3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">ScalarField3D</span></code></a>
+and <a class="reference internal" href="../classes/fields/VectorField3D.html#pykonal.fields.VectorField3D" title="pykonal.fields.VectorField3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">VectorField3D</span></code></a> both inherit
+from <a class="reference internal" href="../classes/fields/Field3D.html#pykonal.fields.Field3D" title="pykonal.fields.Field3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">Field3D</span></code></a> and add important
+functionality that make the classes useful. They are primarily intended
+for storing and interpolating data, and, in the case of scalar fields,
+computing the gradient.</p>
+<p>This module also provides an I/O function
+(<a class="reference internal" href="#pykonal.fields.load" title="pykonal.fields.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">load</span></code></a>) to load data that was saved using
+the <a class="reference internal" href="../classes/fields/Field3D.html#pykonal.fields.Field3D.savez" title="pykonal.fields.Field3D.savez"><code class="xref py py-func docutils literal notranslate"><span class="pre">savez</span></code></a> method of the above
+classes.</p>
+<dl class="function">
+<dt id="pykonal.fields.load">
+<code class="sig-prename descclassname">pykonal.fields.</code><code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param">path</em><span class="sig-paren">)</span><a class="headerlink" href="#pykonal.fields.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load field data from disk.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – Path to input file.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A Field3D-derivative class initialized with data in <em>path</em>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../classes/fields/ScalarField3D.html#pykonal.fields.ScalarField3D" title="pykonal.fields.ScalarField3D">ScalarField3D</a> or <a class="reference internal" href="../classes/fields/VectorField3D.html#pykonal.fields.VectorField3D" title="pykonal.fields.VectorField3D">VectorField3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">PyKonal</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter.html">Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery.html">Gallery</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../api.html">API</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../../api.html">API</a><ul>
+  <li><a href="../modules.html">Modules</a><ul>
+      <li>Previous: <a href="constants.html" title="previous chapter">pykonal.constants</a></li>
+      <li>Next: <a href="heapq.html" title="next chapter">pykonal.heapq</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Malcolm C. A. White.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/api/modules/fields.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

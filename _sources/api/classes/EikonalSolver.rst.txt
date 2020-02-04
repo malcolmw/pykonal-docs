@@ -1,0 +1,22 @@
+pykonal.EikonalSolver
+=====================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+
+.. class:: pykonal.EikonalSolver
+
+   .. autoattribute:: close
+   .. autoattribute:: coord_sys
+   .. autoattribute:: is_alive
+   .. autoattribute:: is_far
+   .. autoattribute:: norm
+   .. autoattribute:: step_size
+   .. autoattribute:: traveltime
+   .. autoattribute:: tt
+   .. autoattribute:: velocity
+   .. autoattribute:: vv
+   .. automethod:: solve(self)
+   .. automethod:: trace_ray(self, end)

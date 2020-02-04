@@ -3,28 +3,42 @@ Jupyter Notebooks
 
 The Jupyter Notebooks here can be used to reproduce the figures from White et al. (2020).
 
-:download:`Point source accuracy <jupyter/point_source_accuracy.ipynb>`
+.. :download:`Figure 3 <jupyter/figure_3.ipynb>`
+Download
+--------
+* figure_3.ipynb
+* figure_4.ipynb
+* figure_5.ipynb
+* figure_6.ipynb
+* figure_7.ipynb
+* figure_8.ipynb
 
-Point source accuracy
----------------------
-.. image:: figures/jupyter/point_source_accuracy.png
+Figure 3
+--------
+.. image:: figures/jupyter/figure_3.png
+   :align: center
 
-Line source accuracy
---------------------
-.. image:: figures/jupyter/line_source_accuracy.png
+Figure 4
+--------
+.. image:: figures/jupyter/figure_4.png
+   :align: center
 
-Marmousi2 stability
---------------------
-.. image:: figures/jupyter/marmousi2.png
+Figure 5
+--------
+.. image:: figures/jupyter/figure_5.png
+   :align: center
 
-Ray-tracing stability
----------------------
-.. image:: figures/jupyter/ray_tracing_accuracy.png
+Figure 6
+--------
+.. image:: figures/jupyter/figure_6.png
+   :align: center
 
-Global stability
-----------------
-.. image:: figures/jupyter/mit2008.png
+Figure 7
+--------
+.. image:: figures/jupyter/figure_7.png
+   :align: center
 
-Reflected waves
----------------
-.. image:: figures/jupyter/reflected_waves.png
+Figure 8
+--------
+.. image:: figures/jupyter/figure_8.png
+   :align: center

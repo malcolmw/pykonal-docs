@@ -1,0 +1,250 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>pykonal.solver.EikonalSolver &#8212; PyKonal 0.1a4 documentation</title>
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="prev" title="pykonal.heapq.Heap" href="../heapq/Heap.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="pykonal-solver-eikonalsolver">
+<h1>pykonal.solver.EikonalSolver<a class="headerlink" href="#pykonal-solver-eikonalsolver" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<dl class="class">
+<dt id="pykonal.solver.EikonalSolver">
+<em class="property">class </em><code class="sig-prename descclassname">pykonal.solver.</code><code class="sig-name descname">EikonalSolver</code><a class="headerlink" href="#pykonal.solver.EikonalSolver" title="Permalink to this definition">¶</a></dt>
+<dd><p>The core class of PyKonal for solving the Eikonal equation.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pykonal</span>
+
+<span class="c1"># Instantiate EikonalSolver object.</span>
+<span class="n">solver</span> <span class="o">=</span> <span class="n">pykonal</span><span class="o">.</span><span class="n">solver</span><span class="o">.</span><span class="n">EikonalSolver</span><span class="p">(</span><span class="n">coord_sys</span><span class="o">=</span><span class="s2">&quot;cartesian&quot;</span><span class="p">)</span>
+<span class="c1"># Initialize EikonalSolver object&#39;s velocity attribute.</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">velocity</span><span class="o">.</span><span class="n">min_coords</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">velocity</span><span class="o">.</span><span class="n">node_intervals</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">velocity</span><span class="o">.</span><span class="n">npts</span> <span class="o">=</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">16</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">velocity</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">solver</span><span class="o">.</span><span class="n">velocity</span><span class="o">.</span><span class="n">npts</span><span class="p">)</span>
+<span class="c1"># Initialize the traveltime field with a source at node with</span>
+<span class="c1"># index (0, 0, 0).</span>
+<span class="n">src_idx</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="c1"># Remove source node from *Unknown*</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">is_far</span><span class="p">[</span><span class="n">src_idx</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="c1"># Add source node to *Trial*.</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">close</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="o">*</span><span class="n">src_idx</span><span class="p">)</span>
+<span class="c1"># Solve the system.</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
+<span class="c1"># Extract the traveltime values.</span>
+<span class="n">tt</span> <span class="o">=</span> <span class="n">solver</span><span class="o">.</span><span class="n">traveltime</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="pykonal.solver.EikonalSolver.solve">
+<code class="sig-name descname">solve</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#pykonal.solver.EikonalSolver.solve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Solve the Eikonal equation using the FMM.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Returns True upon successful execution.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pykonal.solver.EikonalSolver.trace_ray">
+<code class="sig-name descname">trace_ray</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">end</em><span class="sig-paren">)</span><a class="headerlink" href="#pykonal.solver.EikonalSolver.trace_ray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trace the ray ending at <em>end</em>.</p>
+<p>This method traces the ray that ends at <em>end</em> in reverse
+direction by taking small steps along the path of steepest
+traveltime descent. The resulting ray is reversed before being
+returned, so it is in the normal forward-time orientation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>end</strong> (<em>numpy.ndarray</em><em>(</em><em>shape=</em><em>(</em><em>3</em><em>,</em><em>)</em><em>, </em><em>dtype=numpy.float</em><em>)</em>) – Coordinates of the ray’s end point.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The ray path ending at <em>end</em>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray(shape=(N,3), dtype=numpy.float)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pykonal.solver.EikonalSolver.close">
+<code class="sig-name descname">close</code><a class="headerlink" href="#pykonal.solver.EikonalSolver.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>[<em>Read/Write</em>, <a class="reference internal" href="../heapq/Heap.html#pykonal.heapq.Heap" title="pykonal.heapq.Heap"><code class="xref py py-class docutils literal notranslate"><span class="pre">pykonal.heapq.Heap</span></code></a>] Heap of node
+indices in <em>Trial</em>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pykonal.solver.EikonalSolver.coord_sys">
+<code class="sig-name descname">coord_sys</code><a class="headerlink" href="#pykonal.solver.EikonalSolver.coord_sys" title="Permalink to this definition">¶</a></dt>
+<dd><p>[<em>Read only</em>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>] Coordinate system of solver
+{“Cartesian”, “spherical”}.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pykonal.solver.EikonalSolver.is_alive">
+<code class="sig-name descname">is_alive</code><a class="headerlink" href="#pykonal.solver.EikonalSolver.is_alive" title="Permalink to this definition">¶</a></dt>
+<dd><p>[<em>Read/Write</em>, <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>(shape=(N0,N1,N2), dtype=numpy.bool)] 3D array of booleans
+indicating whether nodes are in <em>Known</em>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pykonal.solver.EikonalSolver.is_far">
+<code class="sig-name descname">is_far</code><a class="headerlink" href="#pykonal.solver.EikonalSolver.is_far" title="Permalink to this definition">¶</a></dt>
+<dd><p>[<em>Read/Write</em>, <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>(shape=(N0,N1,N2), dtype=numpy.bool)] 3D array of booleans
+indicating whether nodes are in <em>Unknown</em>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pykonal.solver.EikonalSolver.norm">
+<code class="sig-name descname">norm</code><a class="headerlink" href="#pykonal.solver.EikonalSolver.norm" title="Permalink to this definition">¶</a></dt>
+<dd><p>[<em>Read-only</em>, <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>(shape=(N0,N1,N2,3), dtype=numpy.float)] 4D array of scaling
+factors for gradient operator.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pykonal.solver.EikonalSolver.step_size">
+<code class="sig-name descname">step_size</code><a class="headerlink" href="#pykonal.solver.EikonalSolver.step_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>[<em>Read only</em>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>] Step size used for ray tracing.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pykonal.solver.EikonalSolver.traveltime">
+<code class="sig-name descname">traveltime</code><a class="headerlink" href="#pykonal.solver.EikonalSolver.traveltime" title="Permalink to this definition">¶</a></dt>
+<dd><p>[<em>Read/Write</em>, <a class="reference internal" href="../fields/ScalarField3D.html#pykonal.fields.ScalarField3D" title="pykonal.fields.ScalarField3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">pykonal.fields.ScalarField3D</span></code></a>] 3D array
+of traveltime values.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pykonal.solver.EikonalSolver.tt">
+<code class="sig-name descname">tt</code><a class="headerlink" href="#pykonal.solver.EikonalSolver.tt" title="Permalink to this definition">¶</a></dt>
+<dd><p>[<em>Read/Write</em>, <a class="reference internal" href="../fields/ScalarField3D.html#pykonal.fields.ScalarField3D" title="pykonal.fields.ScalarField3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">pykonal.fields.ScalarField3D</span></code></a>] Alias for
+self.traveltime.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pykonal.solver.EikonalSolver.velocity">
+<code class="sig-name descname">velocity</code><a class="headerlink" href="#pykonal.solver.EikonalSolver.velocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>[<em>Read/Write</em>, <a class="reference internal" href="../fields/ScalarField3D.html#pykonal.fields.ScalarField3D" title="pykonal.fields.ScalarField3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">pykonal.fields.ScalarField3D</span></code></a>] 3D array
+of velocity values.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pykonal.solver.EikonalSolver.vv">
+<code class="sig-name descname">vv</code><a class="headerlink" href="#pykonal.solver.EikonalSolver.vv" title="Permalink to this definition">¶</a></dt>
+<dd><p>[<em>Read/Write</em>, <a class="reference internal" href="../fields/ScalarField3D.html#pykonal.fields.ScalarField3D" title="pykonal.fields.ScalarField3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">pykonal.fields.ScalarField3D</span></code></a>] Alias for
+self.velocity.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">PyKonal</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../jupyter.html">Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery.html">Gallery</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../api.html">API</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../../api.html">API</a><ul>
+  <li><a href="../../classes.html">Classes</a><ul>
+      <li>Previous: <a href="../heapq/Heap.html" title="previous chapter">pykonal.heapq.Heap</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Malcolm C. A. White.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/api/classes/solver/EikonalSolver.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -14,8 +14,8 @@ Conda (Recommended)
 -------------------
 .. code-block::
 
-   conda create -n pykonal python=3.7, numpy, cython>=0.29.14
-   conda activate py37
+   conda create --name pykonal python=3.7, numpy, cython>=0.29.14
+   conda activate pykonal
    python setup.py install
 
 pip

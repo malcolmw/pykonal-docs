@@ -6,3 +6,7 @@ Public Classes
    :caption: Contents:
 
    classes/EikonalSolver
+   classes/fields/Field3D
+   classes/fields/ScalarField3D
+   classes/fields/VectorField3D
+   classes/heapq/Heap

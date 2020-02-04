@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>pykonal.transformations &#8212; PyKonal 0.1a4 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Classes" href="../classes.html" />
+    <link rel="prev" title="pykonal.solver" href="solver.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="pykonal-transformations">
+<h1>pykonal.transformations<a class="headerlink" href="#pykonal-transformations" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<span class="target" id="module-pykonal.transformations"></span><p>A module to facilitate coordinate-system transformations.</p>
+<dl class="function">
+<dt id="pykonal.transformations.rotation_matrix">
+<code class="sig-prename descclassname">pykonal.transformations.</code><code class="sig-name descname">rotation_matrix</code><span class="sig-paren">(</span><em class="sig-param">alpha</em>, <em class="sig-param">beta</em>, <em class="sig-param">gamma</em><span class="sig-paren">)</span><a class="headerlink" href="#pykonal.transformations.rotation_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotation matrix used to rotate a set of cartesian coordinates.</p>
+<p>The rotation matrix is defined such that coordinates are rotated by
+alpha radians about the z-axis, then beta radians about the y’-axis
+and then gamma radians about the z’’-axis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>alpha</strong> (<em>float</em>) – Angle to rotate about the z-axis.</p></li>
+<li><p><strong>beta</strong> (<em>float</em>) – Angle to rotate about the y’-axis.</p></li>
+<li><p><strong>gamma</strong> (<em>float</em>) – Angle to rotate about the z’’-axis.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Rotation matrix.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray(shape=(3,3), dtype=numpy.float)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="pykonal.transformations.sph2sph">
+<code class="sig-prename descclassname">pykonal.transformations.</code><code class="sig-name descname">sph2sph</code><span class="sig-paren">(</span><em class="sig-param">nodes</em>, <em class="sig-param">origin</em><span class="sig-paren">)</span><a class="headerlink" href="#pykonal.transformations.sph2sph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform spherical coordinates to new spherical coordinate system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nodes</strong> (<em>numpy.ndarray</em><em>(</em><em>shape=</em><em>(</em><em>..</em><em>,</em><em>3</em><em>)</em><em>, </em><em>dtype=numpy.float</em><em>)</em>) – Coordinates (spherical) to transform.</p></li>
+<li><p><strong>origin</strong> (<em>tuple</em><em>(</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>)</em>) – Coordinates (spherical) of the origin of the new
+coordinate system with respect to the old coordinate
+system.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Coordinates in new (spherical) coordinate system.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray(shape=(..,3), dtype=numpy.float)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="pykonal.transformations.sph2xyz">
+<code class="sig-prename descclassname">pykonal.transformations.</code><code class="sig-name descname">sph2xyz</code><span class="sig-paren">(</span><em class="sig-param">nodes</em>, <em class="sig-param">origin</em><span class="sig-paren">)</span><a class="headerlink" href="#pykonal.transformations.sph2xyz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform spherical coordinates to new Cartesian coordinate system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nodes</strong> (<em>numpy.ndarray</em><em>(</em><em>shape=</em><em>(</em><em>..</em><em>,</em><em>3</em><em>)</em><em>, </em><em>dtype=numpy.float</em><em>)</em>) – Coordinates (spherical) to transform.</p></li>
+<li><p><strong>origin</strong> (<em>tuple</em><em>(</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>)</em>) – Coordinates (spherical) of the origin of the new
+coordinate system with respect to the old coordinate
+system.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Coordinates in new (Cartesian) coordinate system.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray(shape=(..,3), dtype=numpy.float)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="pykonal.transformations.xyz2sph">
+<code class="sig-prename descclassname">pykonal.transformations.</code><code class="sig-name descname">xyz2sph</code><span class="sig-paren">(</span><em class="sig-param">nodes</em>, <em class="sig-param">origin</em><span class="sig-paren">)</span><a class="headerlink" href="#pykonal.transformations.xyz2sph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform Cartesian coordinates to new spherical coordinate system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nodes</strong> (<em>numpy.ndarray</em><em>(</em><em>shape=</em><em>(</em><em>..</em><em>,</em><em>3</em><em>)</em><em>, </em><em>dtype=numpy.float</em><em>)</em>) – Coordinates (Cartesian) to transform.</p></li>
+<li><p><strong>origin</strong> (<em>tuple</em><em>(</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>)</em>) – Coordinates (Cartesian) of the origin of the new
+coordinate system with respect to the old coordinate
+system.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Coordinates in new (spherical) coordinate system.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray(shape=(..,3), dtype=numpy.float)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="pykonal.transformations.xyz2xyz">
+<code class="sig-prename descclassname">pykonal.transformations.</code><code class="sig-name descname">xyz2xyz</code><span class="sig-paren">(</span><em class="sig-param">nodes</em>, <em class="sig-param">origin</em><span class="sig-paren">)</span><a class="headerlink" href="#pykonal.transformations.xyz2xyz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform Cartesian coordinates to new Cartesian coordinate system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nodes</strong> (<em>numpy.ndarray</em><em>(</em><em>shape=</em><em>(</em><em>..</em><em>,</em><em>3</em><em>)</em><em>, </em><em>dtype=numpy.float</em><em>)</em>) – Coordinates (Cartesian) to transform.</p></li>
+<li><p><strong>origin</strong> (<em>tuple</em><em>(</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>)</em>) – Coordinates (Cartesian) of the origin of the new
+coordinate system with respect to the old coordinate
+system.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Coordinates in new (Cartesian) coordinate system.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray(shape=(..,3), dtype=numpy.float)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">PyKonal</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter.html">Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery.html">Gallery</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../api.html">API</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../../api.html">API</a><ul>
+  <li><a href="../modules.html">Modules</a><ul>
+      <li>Previous: <a href="solver.html" title="previous chapter">pykonal.solver</a></li>
+      <li>Next: <a href="../classes.html" title="next chapter">Classes</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Malcolm C. A. White.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/api/modules/transformations.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

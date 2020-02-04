@@ -15,7 +15,7 @@
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Private API" href="../../private.html" />
+    <link rel="next" title="pykonal.fields.Field3D" href="fields/Field3D.html" />
     <link rel="prev" title="Public Classes" href="../classes.html" />
    
   <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
@@ -44,64 +44,70 @@
 <dl class="attribute">
 <dt id="pykonal.EikonalSolver.close">
 <code class="sig-name descname">close</code><a class="headerlink" href="#pykonal.EikonalSolver.close" title="Permalink to this definition">¶</a></dt>
-<dd><p>[<strong>pykonal.heapq.Heap</strong>] Heap of node indices in <em>Trial</em>.</p>
+<dd><p>[<em>Read/Write</em>, <a class="reference internal" href="heapq/Heap.html#pykonal.heapq.Heap" title="pykonal.heapq.Heap"><code class="xref py py-class docutils literal notranslate"><span class="pre">pykonal.heapq.Heap</span></code></a>] Heap of node
+indices in <em>Trial</em>.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="pykonal.EikonalSolver.coord_sys">
 <code class="sig-name descname">coord_sys</code><a class="headerlink" href="#pykonal.EikonalSolver.coord_sys" title="Permalink to this definition">¶</a></dt>
-<dd><p>[<strong>str</strong>] Coordinate system of solver {“Cartesian”, “spherical”}.</p>
+<dd><p>[<em>Read only</em>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>] Coordinate system of solver
+{“Cartesian”, “spherical”}.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="pykonal.EikonalSolver.is_alive">
 <code class="sig-name descname">is_alive</code><a class="headerlink" href="#pykonal.EikonalSolver.is_alive" title="Permalink to this definition">¶</a></dt>
-<dd><p>[<strong>numpy.ndarray</strong>] 3D array of booleans indicating whether
-nodes are in <em>Known</em>.</p>
+<dd><p>[<em>Read/Write</em>, <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>(shape=(N0,N1,N2), dtype=numpy.bool)] 3D array of booleans
+indicating whether nodes are in <em>Known</em>.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="pykonal.EikonalSolver.is_far">
 <code class="sig-name descname">is_far</code><a class="headerlink" href="#pykonal.EikonalSolver.is_far" title="Permalink to this definition">¶</a></dt>
-<dd><p>[<strong>numpy.ndarray</strong>] 3D array of booleans indicating whether
-nodes are in <em>Unknown</em>.</p>
+<dd><p>[<em>Read/Write</em>, <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>(shape=(N0,N1,N2), dtype=numpy.bool)] 3D array of booleans
+indicating whether nodes are in <em>Unknown</em>.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="pykonal.EikonalSolver.norm">
 <code class="sig-name descname">norm</code><a class="headerlink" href="#pykonal.EikonalSolver.norm" title="Permalink to this definition">¶</a></dt>
-<dd><p>[<strong>numpy.ndarray</strong>] 4D array of scaling factors for gradient
-operator.</p>
+<dd><p>[<em>Read-only</em>, <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>(shape=(N0,N1,N2,3), dtype=numpy.float)] 4D array of scaling
+factors for gradient operator.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="pykonal.EikonalSolver.step_size">
 <code class="sig-name descname">step_size</code><a class="headerlink" href="#pykonal.EikonalSolver.step_size" title="Permalink to this definition">¶</a></dt>
-<dd><p>[<strong>float</strong>] Step size used for ray tracing.</p>
+<dd><p>[<em>Read only</em>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>] Step size used for ray tracing.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="pykonal.EikonalSolver.traveltime">
 <code class="sig-name descname">traveltime</code><a class="headerlink" href="#pykonal.EikonalSolver.traveltime" title="Permalink to this definition">¶</a></dt>
-<dd><p>[<strong>numpy.ndarray</strong>] 3D array of traveltime values.</p>
+<dd><p>[<em>Read/Write</em>, <a class="reference internal" href="fields/ScalarField3D.html#pykonal.fields.ScalarField3D" title="pykonal.fields.ScalarField3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">pykonal.fields.ScalarField3D</span></code></a>] 3D array
+of traveltime values.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="pykonal.EikonalSolver.tt">
 <code class="sig-name descname">tt</code><a class="headerlink" href="#pykonal.EikonalSolver.tt" title="Permalink to this definition">¶</a></dt>
-<dd><p>[<strong>numpy.ndarray</strong>] Alias for self.traveltime.</p>
+<dd><p>[<em>Read/Write</em>, <a class="reference internal" href="fields/ScalarField3D.html#pykonal.fields.ScalarField3D" title="pykonal.fields.ScalarField3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">pykonal.fields.ScalarField3D</span></code></a>] Alias for
+self.traveltime.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="pykonal.EikonalSolver.velocity">
 <code class="sig-name descname">velocity</code><a class="headerlink" href="#pykonal.EikonalSolver.velocity" title="Permalink to this definition">¶</a></dt>
-<dd><p>[<strong>numpy.ndarray</strong>] 3D array of velocity values.</p>
+<dd><p>[<em>Read/Write</em>, <a class="reference internal" href="fields/ScalarField3D.html#pykonal.fields.ScalarField3D" title="pykonal.fields.ScalarField3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">pykonal.fields.ScalarField3D</span></code></a>] 3D array
+of velocity values.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="pykonal.EikonalSolver.vv">
 <code class="sig-name descname">vv</code><a class="headerlink" href="#pykonal.EikonalSolver.vv" title="Permalink to this definition">¶</a></dt>
-<dd><p>[<strong>numpy.ndarray</strong>] Alias for self.velocity.</p>
+<dd><p>[<em>Read/Write</em>, <a class="reference internal" href="fields/ScalarField3D.html#pykonal.fields.ScalarField3D" title="pykonal.fields.ScalarField3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">pykonal.fields.ScalarField3D</span></code></a>] Alias for
+self.velocity.</p>
 </dd></dl>
 
 <dl class="method">
@@ -128,13 +134,13 @@ traveltime descent. The resulting ray is reversed before being
 returned, so it is in the normal forward-time orientation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>end</strong> (<em>numpy.ndarray</em><em>(</em><em>dtype=numpy.float</em><em>)</em>) – Coordinates of the ray’s end point.</p>
+<dd class="field-odd"><p><strong>end</strong> (<em>numpy.ndarray</em><em>(</em><em>shape=</em><em>(</em><em>3</em><em>,</em><em>)</em><em>, </em><em>dtype=numpy.float</em><em>)</em>) – Coordinates of the ray’s end point.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>The ray path ending at <em>end</em>.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>numpyp.ndarray(shape=Nx3)</p>
+<dd class="field-odd"><p>numpy.ndarray(shape=(N,3), dtype=numpy.float)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -177,7 +183,7 @@ returned, so it is in the normal forward-time orientation.</p>
   <li><a href="../../public.html">Public API</a><ul>
   <li><a href="../classes.html">Public Classes</a><ul>
       <li>Previous: <a href="../classes.html" title="previous chapter">Public Classes</a></li>
-      <li>Next: <a href="../../private.html" title="next chapter">Private API</a></li>
+      <li>Next: <a href="fields/Field3D.html" title="next chapter">pykonal.fields.Field3D</a></li>
   </ul></li>
   </ul></li>
   </ul></li>

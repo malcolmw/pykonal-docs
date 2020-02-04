@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>pykonal.fields.Field3D &#8212; PyKonal 0.1a4 documentation</title>
+    <link rel="stylesheet" href="../../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="pykonal.fields.ScalarField3D" href="ScalarField3D.html" />
+    <link rel="prev" title="pykonal.EikonalSolver" href="../EikonalSolver.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="pykonal-fields-field3d">
+<h1>pykonal.fields.Field3D<a class="headerlink" href="#pykonal-fields-field3d" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<dl class="class">
+<dt id="pykonal.fields.Field3D">
+<em class="property">class </em><code class="sig-prename descclassname">pykonal.fields.</code><code class="sig-name descname">Field3D</code><a class="headerlink" href="#pykonal.fields.Field3D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for representing generic 3D fields.</p>
+<dl class="attribute">
+<dt id="pykonal.fields.Field3D.coord_sys">
+<code class="sig-name descname">coord_sys</code><a class="headerlink" href="#pykonal.fields.Field3D.coord_sys" title="Permalink to this definition">¶</a></dt>
+<dd><p>[<em>Read only</em>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>] Coordinate system of grid on which
+field data is represented {“Cartesian”, “spherical”}.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pykonal.fields.Field3D.iax_isnull">
+<code class="sig-name descname">iax_isnull</code><a class="headerlink" href="#pykonal.fields.Field3D.iax_isnull" title="Permalink to this definition">¶</a></dt>
+<dd><p>[<em>Read only</em>, <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>(shape=(3,), dtype=numpy.bool)]
+Array of booleans indicating whether each axis is null. The
+axis with only one layer of nodes in 2D problems will be null.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pykonal.fields.Field3D.is_periodic">
+<code class="sig-name descname">is_periodic</code><a class="headerlink" href="#pykonal.fields.Field3D.is_periodic" title="Permalink to this definition">¶</a></dt>
+<dd><p>[<em>Read only</em>, <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>(shape=(3,), dtype=numpy.bool)]
+Array of booleans indicating whether each axis is periodic. In
+practice, only the azimuthal (<span class="math notranslate nohighlight">\(\phi\)</span>) axis in spherical
+coordinates will ever be periodic.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pykonal.fields.Field3D.node_intervals">
+<code class="sig-name descname">node_intervals</code><a class="headerlink" href="#pykonal.fields.Field3D.node_intervals" title="Permalink to this definition">¶</a></dt>
+<dd><p>[<em>Read/Write</em>, <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>(shape=(3,), dtype=numpy.float)]
+Array of node intervals along each axis. This attribute must be
+initialized by the user.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pykonal.fields.Field3D.npts">
+<code class="sig-name descname">npts</code><a class="headerlink" href="#pykonal.fields.Field3D.npts" title="Permalink to this definition">¶</a></dt>
+<dd><p>[<em>Read/Write</em>, <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>(shape=(3,), dtype=numpy.int)]
+Array specifying the number of nodes along each axis. This
+attribute must be initialized by the user.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pykonal.fields.Field3D.min_coords">
+<code class="sig-name descname">min_coords</code><a class="headerlink" href="#pykonal.fields.Field3D.min_coords" title="Permalink to this definition">¶</a></dt>
+<dd><p>[<em>Read/Write</em>, <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>(shape=(3,), dtype=numpy.float)]
+Array specifying the lower bound of each axis. This attribute
+must be initialized by the user.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pykonal.fields.Field3D.max_coords">
+<code class="sig-name descname">max_coords</code><a class="headerlink" href="#pykonal.fields.Field3D.max_coords" title="Permalink to this definition">¶</a></dt>
+<dd><p>[<em>Read only</em>, <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>(shape=(3,), dtype=numpy.float)]
+Array specifying the upper bound of each axis.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pykonal.fields.Field3D.nodes">
+<code class="sig-name descname">nodes</code><a class="headerlink" href="#pykonal.fields.Field3D.nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>[<em>Read only</em>, <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>(shape=(N0,N1,N2,3), dtype=numpy.float)]
+Array specifying the grid-node coordinates.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pykonal.fields.Field3D.savez">
+<code class="sig-name descname">savez</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">path</em><span class="sig-paren">)</span><a class="headerlink" href="#pykonal.fields.Field3D.savez" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the field to disk using numpy.savez.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – Path to output file.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Returns True upon successful execution.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pykonal.fields.Field3D.transform_coordinates">
+<code class="sig-name descname">transform_coordinates</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">coord_sys</em>, <em class="sig-param">origin</em><span class="sig-paren">)</span><a class="headerlink" href="#pykonal.fields.Field3D.transform_coordinates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform node coordinates to a new frame of reference.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>coord_sys</strong> (<em>str</em>) – Coordinate system to transform to
+(“<em>spherical</em>”, or “<em>Cartesian</em>”)</p></li>
+<li><p><strong>origin</strong> (<em>tuple</em><em>(</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>)</em>) – Coordinates of the origin of the new frame with
+respect to the old frame of reference.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Node coordinates in new frame of reference.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray(shape=(N0,N1,N2,3), dtype=numpy.float)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../index.html">PyKonal</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../jupyter.html">Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gallery.html">Gallery</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../api.html">API</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../../../api.html">API</a><ul>
+  <li><a href="../../../public.html">Public API</a><ul>
+  <li><a href="../../classes.html">Public Classes</a><ul>
+      <li>Previous: <a href="../EikonalSolver.html" title="previous chapter">pykonal.EikonalSolver</a></li>
+      <li>Next: <a href="ScalarField3D.html" title="next chapter">pykonal.fields.ScalarField3D</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Malcolm C. A. White.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../../_sources/api/public/classes/fields/Field3D.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

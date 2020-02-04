@@ -1,0 +1,10 @@
+pykonal.fields.ScalarField3D
+============================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+
+.. autoclass:: pykonal.fields.ScalarField3D
+   :show-inheritance:
