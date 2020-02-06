@@ -115,6 +115,31 @@ grid by 8 nodes in the z direction.</p>
 </div>
 <img alt="_images/cartesian_3d.png" src="_images/cartesian_3d.png" />
 </div>
+<div class="section" id="spherical-2d-spherical-shell">
+<h2>Spherical 2D (Spherical shell)<a class="headerlink" href="#spherical-2d-spherical-shell" title="Permalink to this headline">¶</a></h2>
+<p>This example demonstrates the trivial case of a point source at the North pole
+<span class="math notranslate nohighlight">\((\rho, \theta, \phi) = (6371, 0, 0)\)</span> in a homogeneous velocity model
+where <span class="math notranslate nohighlight">\(v(\rho, \theta, \phi) = 1\)</span> [km/s] using a 1 x 33 x 64
+spherical-shell computational grid. This example demonstrates how to use PyKonal
+to track surface waves.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pykonal</span>
+
+<span class="n">solver</span> <span class="o">=</span> <span class="n">pykonal</span><span class="o">.</span><span class="n">EikonalSolver</span><span class="p">(</span><span class="n">coord_sys</span><span class="o">=</span><span class="s2">&quot;spherical&quot;</span><span class="p">)</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">velocity</span><span class="o">.</span><span class="n">min_coords</span> <span class="o">=</span> <span class="mf">6371.</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">velocity</span><span class="o">.</span><span class="n">node_intervals</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">32</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">32</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">velocity</span><span class="o">.</span><span class="n">npts</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">64</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">velocity</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">solver</span><span class="o">.</span><span class="n">velocity</span><span class="o">.</span><span class="n">npts</span><span class="p">)</span>
+
+<span class="n">src_idx</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">traveltime</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">src_idx</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">unknown</span><span class="p">[</span><span class="n">src_idx</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">trial</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="o">*</span><span class="n">src_idx</span><span class="p">)</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="_images/surface_waves.png" src="_images/surface_waves.png" />
+</div>
 </div>
 
 
