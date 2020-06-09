@@ -1,9 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>pykonal.fields.VectorField3D &#8212; PyKonal 0.1a4 documentation</title>
     <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -12,7 +13,7 @@
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/language_data.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="pykonal.heapq.Heap" href="../heapq/Heap.html" />
@@ -37,14 +38,14 @@
 <h1>pykonal.fields.VectorField3D<a class="headerlink" href="#pykonal-fields-vectorfield3d" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<dl class="class">
+<dl class="py class">
 <dt id="pykonal.fields.VectorField3D">
 <em class="property">class </em><code class="sig-prename descclassname">pykonal.fields.</code><code class="sig-name descname">VectorField3D</code><a class="headerlink" href="#pykonal.fields.VectorField3D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="Field3D.html#pykonal.fields.Field3D" title="pykonal.fields.Field3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">pykonal.fields.Field3D</span></code></a></p>
 <p>Class for representing 3D vector fields.</p>
-<dl class="method">
+<dl class="py method">
 <dt id="pykonal.fields.VectorField3D.value">
-<code class="sig-name descname">value</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">point</em><span class="sig-paren">)</span><a class="headerlink" href="#pykonal.fields.VectorField3D.value" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">point</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pykonal.fields.VectorField3D.value" title="Permalink to this definition">¶</a></dt>
 <dd><p>Interpolate the field at <em>point</em> using trilinear interpolation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -60,7 +61,7 @@ the field.</p>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="pykonal.fields.VectorField3D.values">
 <code class="sig-name descname">values</code><a class="headerlink" href="#pykonal.fields.VectorField3D.values" title="Permalink to this definition">¶</a></dt>
 <dd><p>[<em>Read/Write</em>, <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>(shape=(N0,N1,N2,3), dtype=numpy.float)]
@@ -136,7 +137,7 @@ Value of the field at each grid node.</p>
       &copy;2019, Malcolm C. A. White.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

@@ -1,9 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>pykonal.fields.Field3D &#8212; PyKonal 0.1a4 documentation</title>
     <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -12,7 +13,7 @@
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/language_data.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="pykonal.fields.ScalarField3D" href="ScalarField3D.html" />
@@ -37,13 +38,13 @@
 <h1>pykonal.fields.Field3D<a class="headerlink" href="#pykonal-fields-field3d" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<dl class="class">
+<dl class="py class">
 <dt id="pykonal.fields.Field3D">
 <em class="property">class </em><code class="sig-prename descclassname">pykonal.fields.</code><code class="sig-name descname">Field3D</code><a class="headerlink" href="#pykonal.fields.Field3D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Base class for representing generic 3D fields.</p>
-<dl class="method">
+<dl class="py method">
 <dt id="pykonal.fields.Field3D.savez">
-<code class="sig-name descname">savez</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">path</em><span class="sig-paren">)</span><a class="headerlink" href="#pykonal.fields.Field3D.savez" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">savez</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pykonal.fields.Field3D.savez" title="Permalink to this definition">¶</a></dt>
 <dd><p>Save the field to disk using numpy.savez.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -58,9 +59,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pykonal.fields.Field3D.transform_coordinates">
-<code class="sig-name descname">transform_coordinates</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">coord_sys</em>, <em class="sig-param">origin</em><span class="sig-paren">)</span><a class="headerlink" href="#pykonal.fields.Field3D.transform_coordinates" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">transform_coordinates</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">coord_sys</span></em>, <em class="sig-param"><span class="n">origin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pykonal.fields.Field3D.transform_coordinates" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transform node coordinates to a new frame of reference.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -80,14 +81,14 @@ respect to the old frame of reference.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="pykonal.fields.Field3D.coord_sys">
 <code class="sig-name descname">coord_sys</code><a class="headerlink" href="#pykonal.fields.Field3D.coord_sys" title="Permalink to this definition">¶</a></dt>
 <dd><p>[<em>Read only</em>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>] Coordinate system of grid on which
 field data is represented {“Cartesian”, “spherical”}.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="pykonal.fields.Field3D.iax_isnull">
 <code class="sig-name descname">iax_isnull</code><a class="headerlink" href="#pykonal.fields.Field3D.iax_isnull" title="Permalink to this definition">¶</a></dt>
 <dd><p>[<em>Read only</em>, <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>(shape=(3,), dtype=numpy.bool)]
@@ -95,23 +96,23 @@ Array of booleans indicating whether each axis is null. The
 axis with only one layer of nodes in 2D problems will be null.</p>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="pykonal.fields.Field3D.is_periodic">
-<code class="sig-name descname">is_periodic</code><a class="headerlink" href="#pykonal.fields.Field3D.is_periodic" title="Permalink to this definition">¶</a></dt>
+<dl class="py attribute">
+<dt id="pykonal.fields.Field3D.iax_isperiodic">
+<code class="sig-name descname">iax_isperiodic</code><a class="headerlink" href="#pykonal.fields.Field3D.iax_isperiodic" title="Permalink to this definition">¶</a></dt>
 <dd><p>[<em>Read only</em>, <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>(shape=(3,), dtype=numpy.bool)]
 Array of booleans indicating whether each axis is periodic. In
 practice, only the azimuthal (<span class="math notranslate nohighlight">\(\phi\)</span>) axis in spherical
 coordinates will ever be periodic.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="pykonal.fields.Field3D.max_coords">
 <code class="sig-name descname">max_coords</code><a class="headerlink" href="#pykonal.fields.Field3D.max_coords" title="Permalink to this definition">¶</a></dt>
 <dd><p>[<em>Read only</em>, <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>(shape=(3,), dtype=numpy.float)]
 Array specifying the upper bound of each axis.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="pykonal.fields.Field3D.min_coords">
 <code class="sig-name descname">min_coords</code><a class="headerlink" href="#pykonal.fields.Field3D.min_coords" title="Permalink to this definition">¶</a></dt>
 <dd><p>[<em>Read/Write</em>, <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>(shape=(3,), dtype=numpy.float)]
@@ -119,7 +120,7 @@ Array specifying the lower bound of each axis. This attribute
 must be initialized by the user.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="pykonal.fields.Field3D.node_intervals">
 <code class="sig-name descname">node_intervals</code><a class="headerlink" href="#pykonal.fields.Field3D.node_intervals" title="Permalink to this definition">¶</a></dt>
 <dd><p>[<em>Read/Write</em>, <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>(shape=(3,), dtype=numpy.float)]
@@ -127,19 +128,32 @@ Array of node intervals along each axis. This attribute must be
 initialized by the user.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="pykonal.fields.Field3D.nodes">
 <code class="sig-name descname">nodes</code><a class="headerlink" href="#pykonal.fields.Field3D.nodes" title="Permalink to this definition">¶</a></dt>
 <dd><p>[<em>Read only</em>, <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>(shape=(N0,N1,N2,3), dtype=numpy.float)]
 Array specifying the grid-node coordinates.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
+<dt id="pykonal.fields.Field3D.norm">
+<code class="sig-name descname">norm</code><a class="headerlink" href="#pykonal.fields.Field3D.norm" title="Permalink to this definition">¶</a></dt>
+<dd><p>[<em>Read-only</em>, <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>(shape=(N0,N1,N2,3), dtype=numpy.float)] 4D array of scaling
+factors for gradient operator.</p>
+</dd></dl>
+
+<dl class="py attribute">
 <dt id="pykonal.fields.Field3D.npts">
 <code class="sig-name descname">npts</code><a class="headerlink" href="#pykonal.fields.Field3D.npts" title="Permalink to this definition">¶</a></dt>
 <dd><p>[<em>Read/Write</em>, <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>(shape=(3,), dtype=numpy.int)]
 Array specifying the number of nodes along each axis. This
 attribute must be initialized by the user.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pykonal.fields.Field3D.step_size">
+<code class="sig-name descname">step_size</code><a class="headerlink" href="#pykonal.fields.Field3D.step_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>[<em>Read only</em>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>] Step size used for ray tracing.</p>
 </dd></dl>
 
 </dd></dl>
@@ -211,7 +225,7 @@ attribute must be initialized by the user.</p>
       &copy;2019, Malcolm C. A. White.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

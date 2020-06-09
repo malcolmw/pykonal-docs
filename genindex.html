@@ -1,10 +1,10 @@
 
-
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index &#8212; PyKonal 0.1a4 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -13,7 +13,7 @@
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/language_data.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="#" />
     <link rel="search" title="Search" href="search.html" />
    
@@ -71,15 +71,15 @@
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/modules/constants.html#pykonal.constants.DTYPE_BOOL">DTYPE_BOOL (pykonal.constants attribute)</a>
+      <li><a href="api/modules/constants.html#pykonal.constants.DTYPE_BOOL">DTYPE_BOOL (in module pykonal.constants)</a>
 </li>
-      <li><a href="api/modules/constants.html#pykonal.constants.DTYPE_INT">DTYPE_INT (pykonal.constants attribute)</a>
+      <li><a href="api/modules/constants.html#pykonal.constants.DTYPE_INT">DTYPE_INT (in module pykonal.constants)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/modules/constants.html#pykonal.constants.DTYPE_REAL">DTYPE_REAL (pykonal.constants attribute)</a>
+      <li><a href="api/modules/constants.html#pykonal.constants.DTYPE_REAL">DTYPE_REAL (in module pykonal.constants)</a>
 </li>
-      <li><a href="api/modules/constants.html#pykonal.constants.DTYPE_UINT">DTYPE_UINT (pykonal.constants attribute)</a>
+      <li><a href="api/modules/constants.html#pykonal.constants.DTYPE_UINT">DTYPE_UINT (in module pykonal.constants)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -102,6 +102,10 @@
 
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/modules/transformations.html#pykonal.transformations.geo2sph">geo2sph() (in module pykonal.transformations)</a>
+</li>
+  </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/classes/fields/ScalarField3D.html#pykonal.fields.ScalarField3D.gradient">gradient (pykonal.fields.ScalarField3D attribute)</a>
 </li>
@@ -127,7 +131,7 @@
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/classes/fields/Field3D.html#pykonal.fields.Field3D.is_periodic">is_periodic (pykonal.fields.Field3D attribute)</a>
+      <li><a href="api/classes/fields/Field3D.html#pykonal.fields.Field3D.iax_isperiodic">iax_isperiodic (pykonal.fields.Field3D attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -157,10 +161,23 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/classes/fields/Field3D.html#pykonal.fields.Field3D.max_coords">max_coords (pykonal.fields.Field3D attribute)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/classes/fields/Field3D.html#pykonal.fields.Field3D.min_coords">min_coords (pykonal.fields.Field3D attribute)</a>
 </li>
+      <li>
+    module
+
+      <ul>
+        <li><a href="api/modules/constants.html#module-pykonal.constants">pykonal.constants</a>
+</li>
+        <li><a href="api/modules/fields.html#module-pykonal.fields">pykonal.fields</a>
+</li>
+        <li><a href="api/modules/heapq.html#module-pykonal.heapq">pykonal.heapq</a>
+</li>
+        <li><a href="api/modules/solver.html#module-pykonal.solver">pykonal.solver</a>
+</li>
+        <li><a href="api/modules/transformations.html#module-pykonal.transformations">pykonal.transformations</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -173,8 +190,12 @@
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/classes/solver/EikonalSolver.html#pykonal.solver.EikonalSolver.norm">norm (pykonal.solver.EikonalSolver attribute)</a>
+      <li><a href="api/classes/fields/Field3D.html#pykonal.fields.Field3D.norm">norm (pykonal.fields.Field3D attribute)</a>
+
+      <ul>
+        <li><a href="api/classes/solver/EikonalSolver.html#pykonal.solver.EikonalSolver.norm">(pykonal.solver.EikonalSolver attribute)</a>
 </li>
+      </ul></li>
       <li><a href="api/classes/fields/Field3D.html#pykonal.fields.Field3D.npts">npts (pykonal.fields.Field3D attribute)</a>
 </li>
   </ul></td>
@@ -187,18 +208,43 @@
 </li>
       <li><a href="api/classes/heapq/Heap.html#pykonal.heapq.Heap.push">push() (pykonal.heapq.Heap method)</a>
 </li>
-      <li><a href="api/modules/constants.html#module-pykonal.constants">pykonal.constants (module)</a>
+      <li>
+    pykonal.constants
+
+      <ul>
+        <li><a href="api/modules/constants.html#module-pykonal.constants">module</a>
 </li>
+      </ul></li>
+      <li>
+    pykonal.fields
+
+      <ul>
+        <li><a href="api/modules/fields.html#module-pykonal.fields">module</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/modules/fields.html#module-pykonal.fields">pykonal.fields (module)</a>
+      <li>
+    pykonal.heapq
+
+      <ul>
+        <li><a href="api/modules/heapq.html#module-pykonal.heapq">module</a>
 </li>
-      <li><a href="api/modules/heapq.html#module-pykonal.heapq">pykonal.heapq (module)</a>
+      </ul></li>
+      <li>
+    pykonal.solver
+
+      <ul>
+        <li><a href="api/modules/solver.html#module-pykonal.solver">module</a>
 </li>
-      <li><a href="api/modules/solver.html#module-pykonal.solver">pykonal.solver (module)</a>
+      </ul></li>
+      <li>
+    pykonal.transformations
+
+      <ul>
+        <li><a href="api/modules/transformations.html#module-pykonal.transformations">module</a>
 </li>
-      <li><a href="api/modules/transformations.html#module-pykonal.transformations">pykonal.transformations (module)</a>
-</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -225,26 +271,36 @@
 </li>
       <li><a href="api/classes/heapq/Heap.html#pykonal.heapq.Heap.sift_up">sift_up() (pykonal.heapq.Heap method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/classes/heapq/Heap.html#pykonal.heapq.Heap.size">size (pykonal.heapq.Heap attribute)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/classes/solver/EikonalSolver.html#pykonal.solver.EikonalSolver.solve">solve() (pykonal.solver.EikonalSolver method)</a>
+</li>
+      <li><a href="api/modules/transformations.html#pykonal.transformations.sph2geo">sph2geo() (in module pykonal.transformations)</a>
 </li>
       <li><a href="api/modules/transformations.html#pykonal.transformations.sph2sph">sph2sph() (in module pykonal.transformations)</a>
 </li>
       <li><a href="api/modules/transformations.html#pykonal.transformations.sph2xyz">sph2xyz() (in module pykonal.transformations)</a>
 </li>
-      <li><a href="api/classes/solver/EikonalSolver.html#pykonal.solver.EikonalSolver.step_size">step_size (pykonal.solver.EikonalSolver attribute)</a>
+      <li><a href="api/classes/fields/Field3D.html#pykonal.fields.Field3D.step_size">step_size (pykonal.fields.Field3D attribute)</a>
+
+      <ul>
+        <li><a href="api/classes/solver/EikonalSolver.html#pykonal.solver.EikonalSolver.step_size">(pykonal.solver.EikonalSolver attribute)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="T">T</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/classes/solver/EikonalSolver.html#pykonal.solver.EikonalSolver.trace_ray">trace_ray() (pykonal.solver.EikonalSolver method)</a>
+      <li><a href="api/classes/fields/ScalarField3D.html#pykonal.fields.ScalarField3D.trace_ray">trace_ray() (pykonal.fields.ScalarField3D method)</a>
+
+      <ul>
+        <li><a href="api/classes/solver/EikonalSolver.html#pykonal.solver.EikonalSolver.trace_ray">(pykonal.solver.EikonalSolver method)</a>
 </li>
+      </ul></li>
       <li><a href="api/classes/fields/Field3D.html#pykonal.fields.Field3D.transform_coordinates">transform_coordinates() (pykonal.fields.Field3D method)</a>
 </li>
   </ul></td>
@@ -366,7 +422,7 @@
       &copy;2019, Malcolm C. A. White.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>

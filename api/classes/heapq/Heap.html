@@ -1,9 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>pykonal.heapq.Heap &#8212; PyKonal 0.1a4 documentation</title>
     <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -12,7 +13,7 @@
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/language_data.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="pykonal.solver.EikonalSolver" href="../solver/EikonalSolver.html" />
@@ -37,14 +38,14 @@
 <h1>pykonal.heapq.Heap<a class="headerlink" href="#pykonal-heapq-heap" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<dl class="class">
+<dl class="py class">
 <dt id="pykonal.heapq.Heap">
 <em class="property">class </em><code class="sig-prename descclassname">pykonal.heapq.</code><code class="sig-name descname">Heap</code><a class="headerlink" href="#pykonal.heapq.Heap" title="Permalink to this definition">¶</a></dt>
 <dd><p>Binary Min-Heap structure for storing indices sorted by auxiliary
 values.</p>
-<dl class="method">
+<dl class="py method">
 <dt id="pykonal.heapq.Heap.pop">
-<code class="sig-name descname">pop</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#pykonal.heapq.Heap.pop" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">pop</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pykonal.heapq.Heap.pop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Pop the index of the item with the smallest sort value from the
 heap, maintaining the heap invariant.</p>
 <dl class="field-list simple">
@@ -57,9 +58,9 @@ heap, maintaining the heap invariant.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pykonal.heapq.Heap.push">
-<code class="sig-name descname">push</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">i1</em>, <em class="sig-param">i2</em>, <em class="sig-param">i3</em><span class="sig-paren">)</span><a class="headerlink" href="#pykonal.heapq.Heap.push" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">push</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">i1</span></em>, <em class="sig-param"><span class="n">i2</span></em>, <em class="sig-param"><span class="n">i3</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pykonal.heapq.Heap.push" title="Permalink to this definition">¶</a></dt>
 <dd><p>Push index onto the heap, maintaining the heap invariant.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -82,9 +83,9 @@ heap, maintaining the heap invariant.</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pykonal.heapq.Heap.sift_down">
-<code class="sig-name descname">sift_down</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">j_start</em>, <em class="sig-param">j</em><span class="sig-paren">)</span><a class="headerlink" href="#pykonal.heapq.Heap.sift_down" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">sift_down</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">j_start</span></em>, <em class="sig-param"><span class="n">j</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pykonal.heapq.Heap.sift_down" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sift the heap element at <em>j</em> down the heap (towards the root),
 without going past <em>j_start</em>, until finding a place that it
 fits.</p>
@@ -105,9 +106,9 @@ element <em>j</em> cannot be sifted.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="pykonal.heapq.Heap.sift_up">
-<code class="sig-name descname">sift_up</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">j_start</em><span class="sig-paren">)</span><a class="headerlink" href="#pykonal.heapq.Heap.sift_up" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">sift_up</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">j_start</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pykonal.heapq.Heap.sift_up" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sift the heap element at <em>j_start</em> up the heap (away from the
 root), until finding a place that it fits.</p>
 <dl class="field-list simple">
@@ -123,7 +124,7 @@ root), until finding a place that it fits.</p>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="pykonal.heapq.Heap.heap_index">
 <code class="sig-name descname">heap_index</code><a class="headerlink" href="#pykonal.heapq.Heap.heap_index" title="Permalink to this definition">¶</a></dt>
 <dd><p>[<code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>(shape=(N0,N1,N2), dtype=numpy.int)]
@@ -131,20 +132,20 @@ Array of indices indicating the heap position of each node.
 Index -1 indicates that a node is not on the heap.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="pykonal.heapq.Heap.keys">
 <code class="sig-name descname">keys</code><a class="headerlink" href="#pykonal.heapq.Heap.keys" title="Permalink to this definition">¶</a></dt>
 <dd><p>[<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>[(int, int, int),…]] Sorted list of node
 indices currently on the heap.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="pykonal.heapq.Heap.size">
 <code class="sig-name descname">size</code><a class="headerlink" href="#pykonal.heapq.Heap.size" title="Permalink to this definition">¶</a></dt>
 <dd><p>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>] Number of node indices on the heap.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="pykonal.heapq.Heap.values">
 <code class="sig-name descname">values</code><a class="headerlink" href="#pykonal.heapq.Heap.values" title="Permalink to this definition">¶</a></dt>
 <dd><p>[<code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>(shape=(N0,N1,N2), dtype=numpy.float)]
@@ -220,7 +221,7 @@ Auxiliary values to sort by.</p>
       &copy;2019, Malcolm C. A. White.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

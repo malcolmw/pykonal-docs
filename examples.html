@@ -1,9 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Examples &#8212; PyKonal 0.1a4 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -12,7 +13,7 @@
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/language_data.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Jupyter Notebooks" href="jupyter.html" />
@@ -69,14 +70,14 @@ direction.</p>
 <span class="n">src_idx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
 <span class="c1"># Set the traveltime at the source node to 0.</span>
 <span class="n">solver</span><span class="o">.</span><span class="n">traveltime</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">src_idx</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="c1"># Set the is_far flag for the source node to False.</span>
+<span class="c1"># Set the unknown flag for the source node to False.</span>
 <span class="c1"># This is an FMM state variable indicating which values are completely</span>
 <span class="c1"># unknown. Setting it to False indicates that the node has a tentative value</span>
 <span class="c1"># assigned to it. In this case, the tentative value happens to be the true,</span>
 <span class="c1"># final value.</span>
-<span class="n">solver</span><span class="o">.</span><span class="n">is_far</span><span class="p">[</span><span class="n">src_idx</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">unknown</span><span class="p">[</span><span class="n">src_idx</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="c1"># Push the index of the source node onto the narrow-band heap.</span>
-<span class="n">solver</span><span class="o">.</span><span class="n">close</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="o">*</span><span class="n">src_idx</span><span class="p">)</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">trial</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="o">*</span><span class="n">src_idx</span><span class="p">)</span>
 
 <span class="c1"># Solve the system.</span>
 <span class="n">solver</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
@@ -106,8 +107,8 @@ grid by 8 nodes in the z direction.</p>
 <span class="c1"># Initialize the source.</span>
 <span class="n">src_idx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
 <span class="n">solver</span><span class="o">.</span><span class="n">traveltime</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">src_idx</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">solver</span><span class="o">.</span><span class="n">is_far</span><span class="p">[</span><span class="n">src_idx</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="n">solver</span><span class="o">.</span><span class="n">close</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="o">*</span><span class="n">src_idx</span><span class="p">)</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">unknown</span><span class="p">[</span><span class="n">src_idx</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">trial</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="o">*</span><span class="n">src_idx</span><span class="p">)</span>
 
 <span class="c1"># Solve the system.</span>
 <span class="n">solver</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
@@ -203,7 +204,7 @@ to track surface waves.</p>
       &copy;2019, Malcolm C. A. White.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

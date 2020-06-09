@@ -1,9 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>pykonal.transformations &#8212; PyKonal 0.1a4 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -12,7 +13,7 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/language_data.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Classes" href="../classes.html" />
@@ -38,9 +39,15 @@
 <div class="toctree-wrapper compound">
 </div>
 <span class="target" id="module-pykonal.transformations"></span><p>A module to facilitate coordinate-system transformations.</p>
-<dl class="function">
+<dl class="py function">
+<dt id="pykonal.transformations.geo2sph">
+<code class="sig-prename descclassname">pykonal.transformations.</code><code class="sig-name descname">geo2sph</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">nodes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pykonal.transformations.geo2sph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Map Geographical coordinates to spherical coordinates.</p>
+</dd></dl>
+
+<dl class="py function">
 <dt id="pykonal.transformations.rotation_matrix">
-<code class="sig-prename descclassname">pykonal.transformations.</code><code class="sig-name descname">rotation_matrix</code><span class="sig-paren">(</span><em class="sig-param">alpha</em>, <em class="sig-param">beta</em>, <em class="sig-param">gamma</em><span class="sig-paren">)</span><a class="headerlink" href="#pykonal.transformations.rotation_matrix" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">pykonal.transformations.</code><code class="sig-name descname">rotation_matrix</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">alpha</span></em>, <em class="sig-param"><span class="n">beta</span></em>, <em class="sig-param"><span class="n">gamma</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pykonal.transformations.rotation_matrix" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rotation matrix used to rotate a set of cartesian coordinates.</p>
 <p>The rotation matrix is defined such that coordinates are rotated by
 alpha radians about the z-axis, then beta radians about the y’-axis
@@ -62,9 +69,15 @@ and then gamma radians about the z’’-axis.</p>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
+<dt id="pykonal.transformations.sph2geo">
+<code class="sig-prename descclassname">pykonal.transformations.</code><code class="sig-name descname">sph2geo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">nodes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pykonal.transformations.sph2geo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Map spherical coordinates to geographic coordinates.</p>
+</dd></dl>
+
+<dl class="py function">
 <dt id="pykonal.transformations.sph2sph">
-<code class="sig-prename descclassname">pykonal.transformations.</code><code class="sig-name descname">sph2sph</code><span class="sig-paren">(</span><em class="sig-param">nodes</em>, <em class="sig-param">origin</em><span class="sig-paren">)</span><a class="headerlink" href="#pykonal.transformations.sph2sph" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">pykonal.transformations.</code><code class="sig-name descname">sph2sph</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">nodes</span></em>, <em class="sig-param"><span class="n">origin</span><span class="o">=</span><span class="default_value">[0, 0, 0]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pykonal.transformations.sph2sph" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transform spherical coordinates to new spherical coordinate system.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -84,9 +97,9 @@ system.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="pykonal.transformations.sph2xyz">
-<code class="sig-prename descclassname">pykonal.transformations.</code><code class="sig-name descname">sph2xyz</code><span class="sig-paren">(</span><em class="sig-param">nodes</em>, <em class="sig-param">origin</em><span class="sig-paren">)</span><a class="headerlink" href="#pykonal.transformations.sph2xyz" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">pykonal.transformations.</code><code class="sig-name descname">sph2xyz</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">nodes</span></em>, <em class="sig-param"><span class="n">origin</span><span class="o">=</span><span class="default_value">[0, 0, 0]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pykonal.transformations.sph2xyz" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transform spherical coordinates to new Cartesian coordinate system.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -106,9 +119,9 @@ system.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="pykonal.transformations.xyz2sph">
-<code class="sig-prename descclassname">pykonal.transformations.</code><code class="sig-name descname">xyz2sph</code><span class="sig-paren">(</span><em class="sig-param">nodes</em>, <em class="sig-param">origin</em><span class="sig-paren">)</span><a class="headerlink" href="#pykonal.transformations.xyz2sph" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">pykonal.transformations.</code><code class="sig-name descname">xyz2sph</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">nodes</span></em>, <em class="sig-param"><span class="n">origin</span><span class="o">=</span><span class="default_value">[0, 0, 0]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pykonal.transformations.xyz2sph" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transform Cartesian coordinates to new spherical coordinate system.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -128,9 +141,9 @@ system.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="pykonal.transformations.xyz2xyz">
-<code class="sig-prename descclassname">pykonal.transformations.</code><code class="sig-name descname">xyz2xyz</code><span class="sig-paren">(</span><em class="sig-param">nodes</em>, <em class="sig-param">origin</em><span class="sig-paren">)</span><a class="headerlink" href="#pykonal.transformations.xyz2xyz" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">pykonal.transformations.</code><code class="sig-name descname">xyz2xyz</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">nodes</span></em>, <em class="sig-param"><span class="n">origin</span><span class="o">=</span><span class="default_value">[0, 0, 0]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pykonal.transformations.xyz2xyz" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transform Cartesian coordinates to new Cartesian coordinate system.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -217,7 +230,7 @@ system.</p></li>
       &copy;2019, Malcolm C. A. White.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
