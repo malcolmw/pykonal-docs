@@ -39,14 +39,14 @@ direction.
    src_idx = 0, 0, 0
    # Set the traveltime at the source node to 0.
    solver.traveltime.values[src_idx] = 0
-   # Set the is_far flag for the source node to False.
+   # Set the unknown flag for the source node to False.
    # This is an FMM state variable indicating which values are completely
    # unknown. Setting it to False indicates that the node has a tentative value
    # assigned to it. In this case, the tentative value happens to be the true,
    # final value.
-   solver.is_far[src_idx] = False
+   solver.unknown[src_idx] = False
    # Push the index of the source node onto the narrow-band heap.
-   solver.close.push(*src_idx)
+   solver.trial.push(*src_idx)
 
    # Solve the system.
    solver.solve()
@@ -78,8 +78,8 @@ grid by 8 nodes in the z direction.
    # Initialize the source.
    src_idx = 0, 0, 0
    solver.traveltime.values[src_idx] = 0
-   solver.is_far[src_idx] = False
-   solver.close.push(*src_idx)
+   solver.unknown[src_idx] = False
+   solver.trial.push(*src_idx)
 
    # Solve the system.
    solver.solve()
@@ -113,8 +113,8 @@ grid by 8 nodes in the z direction.
 ..    # Initialize the source.
 ..    src_idx = 0, 0, 0
 ..    solver.traveltime.values[src_idx] = 0
-..    solver.is_far[src_idx] = False
-..    solver.close.push(*src_idx)
+..    solver.unknown[src_idx] = False
+..    solver.trial.push(*src_idx)
 .. 
 ..    # Solve the system.
 ..    solver.solve()
