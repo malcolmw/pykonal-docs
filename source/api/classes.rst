@@ -10,3 +10,4 @@ Classes
    classes/fields/VectorField3D
    classes/heapq/Heap
    classes/solver/EikonalSolver
+   classes/solver/PointSourceSolver

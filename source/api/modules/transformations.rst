@@ -7,4 +7,3 @@ pykonal.transformations
 
 
 .. automodule:: pykonal.transformations
-   :members:
