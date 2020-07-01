@@ -6,16 +6,22 @@
 Welcome to PyKonal's documentation!
 ===================================
 
-.. note:: Documentation is currently under construction and some pages may be incomplete.
+.. note::
+   `Version 0.3.2b0 <https://github.com/malcolmw/pykonal/releases/tag/0.3.2b0>`_
+   is the currently recommended release.
+
+.. note::
+   Documentation is currently under construction and some pages may be incomplete.
+   Please use the `Issue Tracker <https://github.com/malcolmw/pykonal/issues>`_ if
+   you see that any documentation is inaccurate or missing.
 
 .. toctree::
    :maxdepth: 1
    :caption: Contents:
 
    installation
-   examples
-   jupyter
-   gallery
+   examples/examples
+   white_et_al_figures
    api
 
 Indices and tables
