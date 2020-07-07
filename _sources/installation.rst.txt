@@ -13,13 +13,15 @@ Dependencies
 * cython [>=0.29.14]
 * h5py
 * numpy
+* scipy
 
 
 Conda (Recommended)
 -------------------
+.. highlight:: bash
 .. code-block::
 
-   sh$> conda create --name pykonal -c conda-forge python=3.8 'cython>=0.29.14' h5py numpy
+   sh$> conda create --name pykonal -c conda-forge python=3.8 'cython>=0.29.14' h5py numpy scipy
    sh$> conda activate pykonal
    sh$> cd path/to/pykonal
    sh$> pip install .
@@ -28,7 +30,11 @@ pip
 ---
 .. code-block::
 
-   pip install cython>=0.29.14 h5py numpy
-   cd path/to/pykonal
-   pip install .
+   sh$> pip install cython>=0.29.14 h5py numpy scipy
+   sh$> cd path/to/pykonal
+   sh$> pip install .
 
+.. note:: The first impulse of many users at this point is to check that the
+   module imports properly. Make sure you exit the package directory before
+   opening your Python interpreter, otherwise you will receive a
+   ModuleNotFoundError.

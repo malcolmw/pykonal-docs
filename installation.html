@@ -37,7 +37,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Examples" href="examples.html" />
+    <link rel="next" title="Examples" href="examples/examples.html" />
     <link rel="prev" title="Welcome to PyKonal’s documentation!" href="index.html" /> 
 </head>
 
@@ -91,9 +91,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#pip">pip</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jupyter.html">Jupyter Notebooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gallery.html">Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="white_et_al_figures.html">Figures from White et al. (2020)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
 </ul>
 
@@ -174,23 +173,31 @@ is recommended for managing Python environments and dependencies.</p>
 <li><p>cython [&gt;=0.29.14]</p></li>
 <li><p>h5py</p></li>
 <li><p>numpy</p></li>
+<li><p>scipy</p></li>
 </ul>
 </div>
 <div class="section" id="conda-recommended">
 <h2>Conda (Recommended)<a class="headerlink" href="#conda-recommended" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>sh$&gt; conda create --name pykonal -c conda-forge python=3.8 &#39;cython&gt;=0.29.14&#39; h5py numpy
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sh$&gt; conda create --name pykonal -c conda-forge <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.8 <span class="s1">&#39;cython&gt;=0.29.14&#39;</span> h5py numpy scipy
 sh$&gt; conda activate pykonal
-sh$&gt; cd path/to/pykonal
+sh$&gt; <span class="nb">cd</span> path/to/pykonal
 sh$&gt; pip install .
 </pre></div>
 </div>
 </div>
 <div class="section" id="pip">
 <h2>pip<a class="headerlink" href="#pip" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">cython</span><span class="o">&gt;=</span><span class="mf">0.29</span><span class="o">.</span><span class="mi">14</span> <span class="n">h5py</span> <span class="n">numpy</span>
-<span class="n">cd</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">pykonal</span>
-<span class="n">pip</span> <span class="n">install</span> <span class="o">.</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sh$&gt; pip install cython&gt;<span class="o">=</span><span class="m">0</span>.29.14 h5py numpy scipy
+sh$&gt; <span class="nb">cd</span> path/to/pykonal
+sh$&gt; pip install .
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The first impulse of many users at this point is to check that the
+module imports properly. Make sure you exit the package directory before
+opening your Python interpreter, otherwise you will receive a
+ModuleNotFoundError.</p>
 </div>
 </div>
 </div>
@@ -203,7 +210,7 @@ sh$&gt; pip install .
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="examples.html" class="btn btn-neutral float-right" title="Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="examples/examples.html" class="btn btn-neutral float-right" title="Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral float-left" title="Welcome to PyKonal’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
