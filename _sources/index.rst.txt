@@ -7,7 +7,7 @@ Welcome to PyKonal's documentation!
 ===================================
 
 .. note::
-   `Version 0.3.2b0 <https://github.com/malcolmw/pykonal/releases/tag/0.3.2b0>`_
+   `Version 0.3.2b1 <https://github.com/malcolmw/pykonal/releases/tag/0.3.2b1>`_
    is the currently recommended release.
 
 .. note::

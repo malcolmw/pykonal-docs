@@ -220,25 +220,7 @@
 <dl class="py method">
 <dt id="pykonal.solver.EikonalSolver.trace_ray">
 <code class="sig-name descname">trace_ray</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">end</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pykonal.solver.EikonalSolver.trace_ray" title="Permalink to this definition">¶</a></dt>
-<dd><div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 0.3.2: </span>Use self.traveltime.trace_ray() instead.</p>
-</div>
-<p>Trace the ray ending at <em>end</em>.</p>
-<p>This method traces the ray that ends at <em>end</em> in reverse
-direction by taking small steps along the path of steepest
-traveltime descent. The resulting ray is reversed before being
-returned, so it is in the normal forward-time orientation.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>end</strong> (<em>numpy.ndarray</em><em>(</em><em>shape=</em><em>(</em><em>3</em><em>,</em><em>)</em><em>, </em><em>dtype=numpy.float</em><em>)</em>) – Coordinates of the ray’s end point.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>The ray path ending at <em>end</em>.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>numpy.ndarray(shape=(N,3), dtype=numpy.float)</p>
-</dd>
-</dl>
+<dd><p>An alias to self.traveltime.trace_ray().</p>
 </dd></dl>
 
 <dl class="py attribute">
